@@ -56,7 +56,7 @@
 
     // Replace with your app's client ID, redirect URI and desired scopes
     const clientId = 'c8bf4325fa1d482cb618daee323dacab';
-    const redirectUri = 'https://macdonaldr93.github.io/console-song';
+    const redirectUri = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
     const scopes = [
       'streaming',
       'user-read-birthdate',
@@ -88,9 +88,8 @@
       // Ready
       player.on('ready', (readyData) => {
         let currentTimeout;
-
         const deviceId = readyData.device_id;
-        console.log('console.song(); is ready', deviceId);
+
         console.song = function (song, timer) {
           if (!timer) {
             timer = 10000;
